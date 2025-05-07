@@ -25,18 +25,20 @@ export default function Footer() {
     >
       <div className={styles.footer__container}>
         <div className={styles.footer__columns}>
-          <div className={styles.footer__column}>
+          <div
+            className={`${styles.footer__column} ${styles.footer__columnFirst}`}
+          >
             <h4 className="text-center md:text-left">
               <Image
                 src={Logo}
                 alt="Dokkan Logo"
                 width={32}
                 height={32}
-                className={styles.navbar__logo}
+                className={`${styles.navbar__logo} mx-auto md:mx-0`}
               />
             </h4>
             <p className={styles.footer__link}>Dokkan Frontend test</p>
-            <div className="flex my-2 flex-row items-center gap-2">
+            <div className="flex my-2 flex-row items-center  gap-4">
               <a href="/">
                 <Facebook size={20} color="#606060" size={20} />
               </a>
