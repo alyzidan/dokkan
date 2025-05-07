@@ -128,9 +128,12 @@
     border: 2px solid $color-border-light;
   }
   &__button {
-    background-color: $color-primary;
+    background-color: #030b53;
+    background-image: url("../../public/recbg.png") !important;
+    background-position: left;
     color: $color-white;
-    padding: $space-md;
+    padding: $space-lg;
+    font-size: $text-lg;
     border-radius: $radius-md;
     border: none;
     font-size: $text-base;
