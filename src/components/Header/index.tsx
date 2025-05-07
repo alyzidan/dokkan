@@ -113,11 +113,11 @@ const Header = () => {
           </button>
           <motion.button
             type="button"
-            className={styles.navbar__button}
+            className={`${styles.navbar__button} hidden md:block`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Dashboard
+            Dashboard →
           </motion.button>
         </div>
       </div>

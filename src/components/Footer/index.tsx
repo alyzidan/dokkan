@@ -35,21 +35,19 @@ export default function Footer() {
                 className={styles.navbar__logo}
               />
             </h4>
-            <a className="text-center md:text-left" href="#">
-              Dokkan Frontend test
-            </a>
+            <p className={styles.footer__link}>Dokkan Frontend test</p>
             <div className="flex my-2 flex-row items-center gap-2">
               <a href="/">
-                <Facebook color="#c2c2c2" size={20} />
+                <Facebook size={20} color="#606060" size={20} />
               </a>
               <a href="/">
-                <Instagram color="#c2c2c2" size={20} />
+                <Instagram color="#606060" size={20} />
               </a>
               <a href="/">
-                <Linkedin color="#c2c2c2" size={20} />
+                <Linkedin color="#606060" size={20} />
               </a>
               <a href="/">
-                <Twitter color="#c2c2c2" size={20} />
+                <Twitter color="#606060" size={20} />
               </a>
             </div>
           </div>
@@ -83,13 +81,14 @@ export default function Footer() {
           <div className={styles.footer__column}>
             <h4 className="text-center md:text-left">Our Contact</h4>
             <p className="text-center md:text-left">
-              <Mail color="#c2c2c2" size={16} /> dokan@test.sa
+              <Mail color="#c2c2c2" className="mr-2" size={16} /> dokan@test.sa
             </p>
             <p className="text-center md:text-left">
-              <Phone color="#c2c2c2" size={16} /> +999-234-324
+              <Phone color="#c2c2c2" className="mr-2 " size={16} /> +999-234-324
             </p>
             <p className="text-center md:text-left">
-              <MapPin color="#c2c2c2" size={16} /> Saudi Arabia, Jeddah
+              <MapPin color="#c2c2c2" className="mr-2 " size={16} /> Saudi
+              Arabia, Jeddah
             </p>
           </div>
         </div>

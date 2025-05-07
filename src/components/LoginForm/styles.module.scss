@@ -5,21 +5,30 @@
   --login-md: var(--breakpoint-md);
   --login-lg: var(--breakpoint-lg);
 
-  background-color: $color-white;
+  //   background-color: $color-white;
+  &__wrapper {
+    background-image: url("../../public/recbg.png");
+    height: 100%;
+    display: flex;
+    flex: 1 1 auto;
+  }
   //   border-radius: $radius-lg;
   padding: $space-2xl 0px;
   //   box-shadow: $shadow-md;
   //   min-height: 100vh;
-  max-width: 500px;
+  max-width: 450px;
   width: 100%;
   margin: 0 auto;
 
   &__title {
     font-size: $text-2xl;
     color: $color-text;
-    margin-bottom: $space-xl;
+    margin-bottom: $space-4xl;
     text-align: center;
     font-weight: 600;
+    span {
+      $color-text-grey: red;
+    }
   }
 
   &__form {
@@ -112,10 +121,16 @@
     gap: $space-xs;
   }
 
+  &__googlebutton {
+    background-color: $color-white;
+    padding: $space-md;
+    border-radius: $radius-md;
+    border: 2px solid $color-border-light;
+  }
   &__button {
     background-color: $color-primary;
     color: $color-white;
-    padding: $space-sm;
+    padding: $space-md;
     border-radius: $radius-md;
     border: none;
     font-size: $text-base;
@@ -149,7 +164,7 @@
     border-radius: 0;
 
     .loginForm__statusIcon {
-      //   right: 40px;
+      right: 40px;
     }
   }
 }

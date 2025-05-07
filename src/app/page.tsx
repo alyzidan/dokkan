@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+// import { Footere } from "@/components/Footere";
 
 import Header from "@/components/Header";
 import { LoginForm } from "@/components/LoginForm";
@@ -11,10 +12,7 @@ export default function Home() {
       <div className="min-h-screen flex flex-col">
         <Header />
 
-        <div className="my-9"></div>
-        <div>
-          <LoginForm />
-        </div>
+        <LoginForm />
 
         <Footer />
         {/* <FooterSecond /> */}

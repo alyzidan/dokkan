@@ -2,22 +2,23 @@
 
 .footer {
   background-color: $color-dark;
-  //   border-top: 1px solid $color-border;
   padding: $space-2xl 0px;
   width: 100%;
   display: block;
 
   z-index: 10;
-  //   @media (min-width: 768px) {
-  //     position: fixed;
-  //     bottom: 0;
-  //   }
+  &__link {
+    color: $color-dark-grey !important;
+  }
   &__columns {
     display: flex;
     flex-wrap: wrap;
     gap: $space-xl;
     margin-top: $space-xl;
     margin-bottom: 10rem;
+    p {
+      color: $color-dark-grey;
+    }
   }
 
   &__column {
@@ -116,7 +117,7 @@
   }
 
   &__copyright {
-    border-top: 1px solid $color-border;
+    // border-top: 1px solid $color-border;
     padding: $space-md;
     display: flex;
     flex-wrap: wrap;
