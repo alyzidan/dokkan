@@ -54,13 +54,12 @@
   &__columnFirst {
     @media (min-width: 768px) {
       flex: 0 1 30%; // Wider first column (30%)
-      min-width: 250px; // Ensure it doesn't get too small
+      min-width: 250px;
     }
   }
 
   @media (min-width: 768px) {
     &__column {
-      //   flex: 1 1 calc(17.5% - $space-xl); // Other columns share remaining space
       flex: 1 1 calc(30.5% - 2rem);
 
       text-align: left;
@@ -71,7 +70,7 @@
     }
 
     &__column:not(&__columnFirst) {
-      flex: 1 1 calc((62% - ($space-xl * 3)) / 4); // Precise distribution
+      flex: 1 1 calc((62% - ($space-xl * 3)) / 4);
     }
   }
 
@@ -85,6 +84,8 @@
     border-top: 1px solid rgba($color-white, 0.1);
     padding: $space-xl $space-md $space-md;
     display: flex;
+    color: rgba($color-white, 0.7);
+
     flex-direction: column;
     align-items: center;
     gap: $space-md;

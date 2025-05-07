@@ -1,5 +1,5 @@
 @import "@/styles/_variables.scss";
-/* Base styles */
+
 .navbar {
   background-color: $color-white;
   position: fixed;
@@ -22,7 +22,6 @@
   gap: $space-md;
 }
 
-/* Brand styles */
 .navbar__brand {
   display: flex;
   align-items: center;
@@ -32,8 +31,8 @@
 }
 
 .navbar__logo {
-  height: auto; // Let Next.js Image handle dimensions
-  width: auto; // Let Next.js Image handle dimensions
+  height: auto;
+  width: auto;
 }
 
 .navbar__brandText {
@@ -44,7 +43,6 @@
   margin-left: $space-sm;
 }
 
-/* Menu styles */
 .navbar__menu {
   width: 100%;
   order: 3;
@@ -93,7 +91,6 @@
   }
 }
 
-/* Actions styles */
 .navbar__actions {
   display: flex;
   gap: $space-md;
@@ -154,7 +151,6 @@
   will-change: transform;
 }
 
-/* Desktop styles */
 @media (min-width: 768px) {
   .navbar__container {
     flex-wrap: nowrap;

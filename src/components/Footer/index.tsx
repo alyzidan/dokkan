@@ -89,29 +89,25 @@ export default function Footer() {
               <Phone color="#c2c2c2" className="mr-2 " size={16} /> +999-234-324
             </p>
             <p className="text-center md:text-left">
-              <MapPin color="#c2c2c2" className="mr-2 " size={16} /> Saudi
-              Arabia, Jeddah
+              <MapPin color="#c2c2c2" className="mr-2 " size={16} /> Saudi,
+              Jeddah
             </p>
           </div>
         </div>
       </div>
-
-      {/* Copyright */}
       <div className={styles.footer__copyright}>
         <span>© {new Date().getFullYear()} Your Brand</span>
         <div className={styles.footer__legalLinks}>
-          {["Privacy Policy", "Terms of Service", "Cookie Settings"].map(
-            (text) => (
-              <motion.a
-                key={text}
-                href="#"
-                className={styles.footer__legalLink}
-                whileHover={{ scale: 1.05 }}
-              >
-                {text}
-              </motion.a>
-            )
-          )}
+          {["Privacy Policy", "GDBR", "Terms of services"].map((text) => (
+            <motion.a
+              key={text}
+              href="#"
+              className={styles.footer__legalLink}
+              whileHover={{ scale: 1.05 }}
+            >
+              {text}
+            </motion.a>
+          ))}
         </div>
       </div>
     </motion.footer>

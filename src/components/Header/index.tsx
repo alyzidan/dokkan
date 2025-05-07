@@ -25,27 +25,6 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  if (!isMounted) {
-    return (
-      <nav className={styles.navbar}>
-        <div className={styles.navbar__container}>
-          <a href="/" className={styles.navbar__brand}>
-            <Image
-              src={Logo}
-              alt="Dokkan Logo"
-              width={32}
-              height={32}
-              className={styles.navbar__logo}
-            />
-            <span className={styles.navbar__brandText}>Dokkan</span>
-          </a>
-          <div className={styles.navbar__actions}>
-            <button className={styles.navbar__button}>Get started</button>
-          </div>
-        </div>
-      </nav>
-    );
-  }
 
   return (
     <motion.nav
