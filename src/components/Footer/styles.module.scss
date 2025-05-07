@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     gap: $space-xl;
     margin-top: $space-xl;
+    margin-bottom: 10rem;
   }
 
   &__column {
@@ -21,7 +22,7 @@
     gap: $space-xs;
 
     h4 {
-      font-size: $text-lg;
+      font-size: $text-xl;
       color: $color-white;
       margin-bottom: $space-md;
     }
@@ -57,74 +58,6 @@
         var(--regular-col-width)
       );
     gap: var(--footer-gap);
-  }
-
-  &__colMain {
-    display: flex;
-    flex-direction: column;
-    gap: $space-2xl;
-  }
-
-  &__upper {
-    display: flex;
-    flex-direction: column;
-    gap: $space-md;
-  }
-
-  &__logo {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  &__brandText {
-    font-size: $text-2xl;
-    font-weight: 600;
-    color: $color-text;
-  }
-
-  &__description {
-    color: $color-text-light;
-    font-size: $text-sm;
-    line-height: 1.5;
-  }
-
-  &__lower {
-    display: flex;
-    // grid-template-columns: 1fr 1fr;
-    width: 100%;
-    gap: $space-xl;
-    padding-top: $space-xl;
-    border-top: 1px solid $color-border;
-  }
-
-  &__subHeading {
-    font-size: $text-base;
-    font-weight: 600;
-    margin-bottom: $space-sm;
-    color: $color-text;
-  }
-
-  &__socials {
-    display: flex;
-    flex-direction: column;
-    gap: $space-xs;
-  }
-
-  &__socialLink {
-    color: $color-text-light;
-    text-decoration: none;
-    font-size: $text-sm;
-    transition: color $transition-fast ease;
-
-    &:hover {
-      color: $color-primary;
-    }
-  }
-
-  &__downloads {
-    display: flex;
-    flex-direction: column;
-    gap: $space-sm;
   }
 
   &__downloadButton {

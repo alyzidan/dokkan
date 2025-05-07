@@ -4,16 +4,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./styles.module.scss";
 import Logo from "@/public/logo.svg";
-
-const footerLinks = [
-  {
-    title: "Product",
-    links: ["Features", "Pricing", "Enterprise", "Changelog"],
-  },
-  { title: "Company", links: ["About", "Blog", "Careers", "Contact"] },
-  { title: "Resources", links: ["Docs", "Help", "API Status", "Partners"] },
-  { title: "Legal", links: ["Privacy", "Terms", "Security", "GDPR"] },
-];
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -39,12 +38,20 @@ export default function Footer() {
             <a className="text-center md:text-left" href="#">
               Dokkan Frontend test
             </a>
-            <a className="text-center md:text-left" href="#">
-              GDPR
-            </a>
-            <a className="text-center md:text-left" href="#">
-              Terms of service
-            </a>
+            <div className="flex my-2 flex-row items-center gap-2">
+              <a href="/">
+                <Facebook color="#c2c2c2" size={20} />
+              </a>
+              <a href="/">
+                <Instagram color="#c2c2c2" size={20} />
+              </a>
+              <a href="/">
+                <Linkedin color="#c2c2c2" size={20} />
+              </a>
+              <a href="/">
+                <Twitter color="#c2c2c2" size={20} />
+              </a>
+            </div>
           </div>
           <div className={styles.footer__column}>
             <h4 className="text-center md:text-left">Home</h4>
@@ -74,32 +81,18 @@ export default function Footer() {
             </a>
           </div>
           <div className={styles.footer__column}>
-            <h4 className="text-center md:text-left">Contact</h4>
-            <p className="text-center md:text-left">dokan@test.sa</p>
-            <p className="text-center md:text-left">+999-234-324</p>
-            <p className="text-center md:text-left">Saudi Arabia, Jeddah</p>
+            <h4 className="text-center md:text-left">Our Contact</h4>
+            <p className="text-center md:text-left">
+              <Mail color="#c2c2c2" size={16} /> dokan@test.sa
+            </p>
+            <p className="text-center md:text-left">
+              <Phone color="#c2c2c2" size={16} /> +999-234-324
+            </p>
+            <p className="text-center md:text-left">
+              <MapPin color="#c2c2c2" size={16} /> Saudi Arabia, Jeddah
+            </p>
           </div>
         </div>
-
-        {/* Other Columns */}
-        {/* {footerLinks.map((section) => (
-          <div key={section.title} className={styles.footer__col}>
-            <h4 className={styles.footer__heading}>{section.title}</h4>
-            <ul className={styles.footer__list}>
-              {section.links.map((link) => (
-                <li key={link} className={styles.footer__listItem}>
-                  <motion.a
-                    href="#"
-                    className={styles.footer__link}
-                    whileHover={{ x: 5 }}
-                  >
-                    {link}
-                  </motion.a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))} */}
       </div>
 
       {/* Copyright */}

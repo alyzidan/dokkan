@@ -1,0 +1,151 @@
+@import "@/styles/_variables.scss";
+
+.loginForm {
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  padding: $space-2xl;
+  box-shadow: $shadow-md;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__title {
+    font-size: $text-2xl;
+    color: $color-text;
+    margin-bottom: $space-xl;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    font-size: $text-base;
+    color: $color-text;
+    font-weight: 500;
+  }
+
+  &__inputWrapper {
+    position: relative;
+  }
+
+  &__input {
+    padding: $space-sm $space-md;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    font-size: $text-base;
+    transition: all $transition-fast ease;
+    width: 100%;
+    padding-right: $space-2xl;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.1);
+    }
+
+    &--default {
+      border-color: $color-border;
+    }
+
+    &--success {
+      border-color: $color-success;
+      background-color: rgba($color-success, 0.05);
+    }
+
+    &--error {
+      border-color: $color-error;
+      background-color: rgba($color-error, 0.05);
+    }
+  }
+
+  &__statusIcon {
+    position: absolute;
+    right: $space-md;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &__statusIcon {
+    &[data-icon="check"] {
+      color: $color-success;
+    }
+    &[data-icon="x"] {
+      color: $color-error;
+    }
+  }
+
+  &__passwordWrapper {
+    position: relative;
+  }
+
+  &__togglePassword {
+    position: absolute;
+    right: $space-md;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $color-text-light;
+    padding: $space-xs;
+    z-index: 2;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+
+  &__error {
+    color: $color-error;
+    font-size: $text-sm;
+    margin-top: $space-xs;
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+  }
+
+  &__button {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: $space-sm;
+    border-radius: $radius-md;
+    border: none;
+    font-size: $text-base;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color $transition-fast ease;
+    width: 100%;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+
+    &:disabled {
+      background-color: $color-text-light;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .loginForm {
+    padding: $space-xl $space-lg;
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
