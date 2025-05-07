@@ -1,0 +1,232 @@
+@import "@/styles/_variables.scss";
+
+.footer {
+  background-color: $color-dark;
+  //   border-top: 1px solid $color-border;
+  padding: $space-2xl 0px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  &__columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xl;
+    margin-top: $space-xl;
+  }
+
+  &__column {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+
+    h4 {
+      font-size: $text-lg;
+      color: $color-white;
+      margin-bottom: $space-md;
+    }
+
+    a,
+    p {
+      color: $color-white;
+      font-size: $text-lg;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: $space-xs;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__column {
+      flex: 1 1 calc(20% - $space-xl);
+    }
+  }
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--footer-padding) $space-md;
+    display: grid;
+    grid-template-columns: var(--main-col-width) repeat(
+        4,
+        var(--regular-col-width)
+      );
+    gap: var(--footer-gap);
+  }
+
+  &__colMain {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2xl;
+  }
+
+  &__upper {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &__brandText {
+    font-size: $text-2xl;
+    font-weight: 600;
+    color: $color-text;
+  }
+
+  &__description {
+    color: $color-text-light;
+    font-size: $text-sm;
+    line-height: 1.5;
+  }
+
+  &__lower {
+    display: flex;
+    // grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: $space-xl;
+    padding-top: $space-xl;
+    border-top: 1px solid $color-border;
+  }
+
+  &__subHeading {
+    font-size: $text-base;
+    font-weight: 600;
+    margin-bottom: $space-sm;
+    color: $color-text;
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__socialLink {
+    color: $color-text-light;
+    text-decoration: none;
+    font-size: $text-sm;
+    transition: color $transition-fast ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__downloads {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__downloadButton {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: $space-xs $space-sm;
+    border-radius: $radius-md;
+    border: none;
+    cursor: pointer;
+    font-size: $text-sm;
+    text-align: left;
+    transition: background-color $transition-fast ease;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__heading {
+    font-size: $text-base;
+    font-weight: 600;
+    color: $color-text;
+    margin-bottom: $space-xs;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    list-style: none;
+  }
+
+  &__listItem {
+    font-size: $text-sm;
+  }
+
+  &__link {
+    color: $color-text-light;
+    text-decoration: none;
+    transition: color $transition-fast ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid $color-border;
+    padding: $space-md;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: $space-md;
+    font-size: $text-sm;
+    color: $color-text-light;
+  }
+
+  &__legalLinks {
+    display: flex;
+    gap: $space-md;
+  }
+
+  &__legalLink {
+    color: $color-text-light;
+    text-decoration: none;
+    transition: color $transition-fast ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: $space-2xl;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__lower {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+  }
+
+  .footer__copyright {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__legalLinks {
+    justify-content: center;
+  }
+}
