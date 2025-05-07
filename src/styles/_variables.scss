@@ -43,7 +43,25 @@ $shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)
 $shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
   0 4px 6px -4px rgba(0, 0, 0, 0.1);
 
-// Transitions
 $transition-fast: 150ms;
 $transition-normal: 300ms;
 $transition-slow: 500ms;
+
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Export as mixin to avoid :root
+@mixin export-breakpoints() {
+  .breakpoints {
+    --breakpoint-sm: #{$breakpoint-sm};
+    --breakpoint-md: #{$breakpoint-md};
+    --breakpoint-lg: #{$breakpoint-lg};
+    --breakpoint-xl: #{$breakpoint-xl};
+    --breakpoint-2xl: #{$breakpoint-2xl};
+  }
+}
+
+@include export-breakpoints();

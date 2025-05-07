@@ -29,8 +29,7 @@ const Header = () => {
     return (
       <nav className={styles.navbar}>
         <div className={styles.navbar__container}>
-          {/* Static version for SSR */}
-          <a href="https://flowbite.com/" className={styles.navbar__brand}>
+          <a href="/" className={styles.navbar__brand}>
             <Image
               src={Logo}
               alt="Dokkan Logo"
@@ -38,7 +37,7 @@ const Header = () => {
               height={32}
               className={styles.navbar__logo}
             />
-            <span className={styles.navbar__brandText}>Flowbite</span>
+            <span className={styles.navbar__brandText}>Dokkan</span>
           </a>
           <div className={styles.navbar__actions}>
             <button className={styles.navbar__button}>Get started</button>

@@ -2,8 +2,9 @@
 
 import { Mail, Lock, Eye, EyeOff, Check, X } from "lucide-react";
 import { useLoginForm } from "@/hooks/useLoginForm";
+
 import styles from "./styles.module.scss";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export const LoginForm = () => {
   const {
@@ -14,36 +15,52 @@ export const LoginForm = () => {
     showPassword,
     togglePasswordVisibility,
     onSubmit,
-    emailValue,
-    passwordValue,
-    trigger,
-    touchedFields,
+    handleFieldInteraction,
+    getInputState,
+    watch,
+    setFocus,
   } = useLoginForm();
 
-  // Trigger validation when fields change
-  useEffect(() => {
-    if (emailValue || passwordValue) {
-      trigger();
-    }
-  }, [emailValue, passwordValue, trigger]);
-
-  const getInputState = (field: string, value: string) => {
-    if (!touchedFields[field as keyof typeof touchedFields]) return "default";
-    return errors[field as keyof typeof errors] ? "error" : "success";
-  };
+  const emailValue = watch("email");
+  const passwordValue = watch("password");
 
   return (
-    <div className={styles.loginForm}>
-      <h2 className={styles.loginForm__title}>Login</h2>
+    <motion.div
+      className={styles.loginForm}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <motion.h2
+        className={styles.loginForm__title}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.1 }}
+      >
+        Login
+      </motion.h2>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.loginForm__form}
       >
         {/* Email Field */}
-        <div className={styles.loginForm__field}>
-          <label htmlFor="email" className={styles.loginForm__label}>
+        <motion.div
+          className={styles.loginForm__field}
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <label
+            htmlFor="email"
+            className={styles.loginForm__label}
+            onClick={() => {
+              setFocus("email");
+              handleFieldInteraction("email");
+            }}
+          >
             <Mail size={18} />
-            <span>Email Address</span>
+            <span>Email </span>
           </label>
           <div className={styles.loginForm__inputWrapper}>
             <input
@@ -55,24 +72,57 @@ export const LoginForm = () => {
                 ]
               }`}
               placeholder="Enter your email"
-              {...register("email")}
+              {...register("email", {
+                onBlur: () => handleFieldInteraction("email"),
+              })}
             />
             {getInputState("email", emailValue) === "success" && (
-              <Check className={styles.loginForm__statusIcon} />
+              <motion.div
+                className={styles.loginForm__statusIcon}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring" }}
+              >
+                <Check className="relative bottom-[10px]" />
+              </motion.div>
             )}
             {getInputState("email", emailValue) === "error" && (
-              <X className={styles.loginForm__statusIcon} />
+              <motion.div
+                className={styles.loginForm__statusIcon}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring" }}
+              >
+                <X className="relative bottom-[12px]" />
+              </motion.div>
             )}
           </div>
-          {errors.email && (
-            <p className={styles.loginForm__error}>{errors.email.message}</p>
+          {errors.email && getInputState("email", emailValue) === "error" && (
+            <motion.p
+              className={styles.loginForm__error}
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              {errors.email.message}
+            </motion.p>
           )}
-        </div>
+        </motion.div>
 
         {/* Password Field */}
-        <div className={styles.loginForm__field}>
-          <label htmlFor="password" className={styles.loginForm__label}>
-            <Lock size={18} />
+        <motion.div
+          className={styles.loginForm__field}
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <label
+            htmlFor="password"
+            className={styles.loginForm__label}
+            onClick={() => {
+              setFocus("password");
+              handleFieldInteraction("password");
+            }}
+          >
             <span>Password</span>
           </label>
           <div className={styles.loginForm__inputWrapper}>
@@ -88,7 +138,9 @@ export const LoginForm = () => {
                 ]
               }`}
               placeholder="Enter your password"
-              {...register("password")}
+              {...register("password", {
+                onBlur: () => handleFieldInteraction("password"),
+              })}
             />
             <button
               type="button"
@@ -99,25 +151,51 @@ export const LoginForm = () => {
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>
             {getInputState("password", passwordValue) === "success" && (
-              <Check className={styles.loginForm__statusIcon} />
+              <motion.div
+                className={styles.loginForm__statusIcon}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring" }}
+              >
+                <Check className="relative bottom-[10px]" />
+              </motion.div>
             )}
             {getInputState("password", passwordValue) === "error" && (
-              <X className={styles.loginForm__statusIcon} />
+              <motion.div
+                className={styles.loginForm__statusIcon}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring" }}
+              >
+                <X className="relative bottom-[12px]" />
+              </motion.div>
             )}
           </div>
-          {errors.password && (
-            <p className={styles.loginForm__error}>{errors.password.message}</p>
-          )}
-        </div>
+          {errors.password &&
+            getInputState("password", passwordValue) === "error" && (
+              <motion.p
+                className={styles.loginForm__error}
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {errors.password.message}
+              </motion.p>
+            )}
+        </motion.div>
 
-        <button
+        <motion.button
           type="submit"
           className={styles.loginForm__button}
           disabled={isSubmitting}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
         >
           {isSubmitting ? "Logging in..." : "Login"}
-        </button>
+        </motion.button>
       </form>
-    </div>
+    </motion.div>
   );
 };

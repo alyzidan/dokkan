@@ -1,10 +1,15 @@
 @import "@/styles/_variables.scss";
 
 .loginForm {
+  --login-sm: var(--breakpoint-sm);
+  --login-md: var(--breakpoint-md);
+  --login-lg: var(--breakpoint-lg);
+
   background-color: $color-white;
-  border-radius: $radius-lg;
-  padding: $space-2xl;
-  box-shadow: $shadow-md;
+  //   border-radius: $radius-lg;
+  padding: $space-2xl 0px;
+  //   box-shadow: $shadow-md;
+  //   min-height: 100vh;
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
@@ -43,7 +48,7 @@
   }
 
   &__input {
-    padding: $space-sm $space-md;
+    padding: $space-md $space-md;
     border: 1px solid $color-border;
     border-radius: $radius-md;
     font-size: $text-base;
@@ -74,23 +79,11 @@
 
   &__statusIcon {
     position: absolute;
-    right: $space-md;
+    right: 45px; /* Adjusted from $space-md to move left by ~25px */
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-  }
-
-  &__statusIcon {
-    &[data-icon="check"] {
-      color: $color-success;
-    }
-    &[data-icon="x"] {
-      color: $color-error;
-    }
-  }
-
-  &__passwordWrapper {
-    position: relative;
+    color: inherit;
   }
 
   &__togglePassword {
@@ -140,6 +133,25 @@
       cursor: not-allowed;
     }
   }
+  @media (min-width: 768px) {
+    &__column {
+      flex: 1 1 calc(20% - $space-xl);
+    }
+  }
+  // Media queries using CSS vars
+  @media (min-width: var(--login-md)) {
+    padding: $space-2xl;
+    background-color: red;
+  }
+
+  @media (max-width: var(--login-md)) {
+    max-width: 100%;
+    border-radius: 0;
+
+    .loginForm__statusIcon {
+      //   right: 40px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -147,5 +159,9 @@
     padding: $space-xl $space-lg;
     max-width: 100%;
     border-radius: 0;
+
+    &__statusIcon {
+      //   right: 40px; /* Slightly less offset on mobile */
+    }
   }
 }

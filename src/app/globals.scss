@@ -1,5 +1,12 @@
 @use "../styles/variables" as *;
 @import "tailwindcss";
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;

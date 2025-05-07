@@ -5,8 +5,13 @@
   //   border-top: 1px solid $color-border;
   padding: $space-2xl 0px;
   width: 100%;
-  position: relative;
+  display: block;
+
   z-index: 10;
+  //   @media (min-width: 768px) {
+  //     position: fixed;
+  //     bottom: 0;
+  //   }
   &__columns {
     display: flex;
     flex-wrap: wrap;
